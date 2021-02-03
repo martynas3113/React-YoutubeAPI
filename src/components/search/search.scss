@@ -4,6 +4,7 @@
     padding: 0 20px;
     margin-left: 10px;
     align-items: center;
+    position: relative;
   }
   
   .form-controls {
@@ -22,7 +23,7 @@
   }
   .form-controls input[type="text"]:focus {
     outline: none;
-    border-color: gray;
+    border-color: #057ffb;
     box-shadow: 0 2px 5px lightgray;
   }
   
@@ -33,4 +34,31 @@
   .btn {
       margin-left: 10px;
       padding: 10px 12px;
+  }
+
+  .error{
+    visibility: hidden;
+    opacity: 0;
+    width:300px;
+    position: absolute;
+    padding: 10px;
+    background-color: red;
+    left: 50%;
+    top:7%;
+    transform: translate(-50%,-7%);
+    transition: all 0.3s ease-in-out;
+    
+  }
+
+  .active{
+    visibility:visible;
+    opacity: 1;
+  }
+
+  @media(max-width:991px){
+    .error{
+      left:50%;
+      top:48%;
+      transform: translate(-50%,-50%);
+    }
   }
