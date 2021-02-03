@@ -1,0 +1,23 @@
+.video {
+    box-shadow: 0 2px 1px lightgray;
+    border: 1px solid lightgray;
+    border-radius: 2px;
+    margin: 20px 0;
+    cursor: pointer;
+    .title {
+      text-align: center;
+      padding: 10px;
+      margin: 0;
+      font-weight: 600;
+      font-size: 14px;
+    }
+  }
+
+  .image-bg{
+      background-size: cover;
+      background-position: center center;
+      height: 180px;
+      position: relative;
+  }
+  
+   
