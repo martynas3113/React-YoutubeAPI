@@ -5,7 +5,8 @@ import './videoplayer.scss';
 const Videoplayer = ({ videoId }) => {
   if (!videoId) {
     return (
-      <p>
+      <p className="subtitle">
+        Start searching for Youtube videos!
       </p>
     );
   }

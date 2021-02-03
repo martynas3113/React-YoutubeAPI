@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.scss';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Search from './components/search/search';
@@ -7,48 +7,42 @@ import youtubeApi from './components/api/youtube';
 import Videoplayer from './components/videoPlayer/videoplayer';
 import { Col, Container, Row } from 'react-bootstrap';
 
-export default class App extends React.Component {
 
-  state = {
-      videosMetaInfo: [],
-      selectedVideoId: null
-    };
 
-    onVideoSelected = videoId => {
-      this.setState({
-        selectedVideoId: videoId
-      })
-    }
-    onSearch = async keyword => {
-      const response = await youtubeApi.get("/search", {
-        params: {
-          q: keyword
-        }
-      });
-      this.setState({
-        videosMetaInfo: response.data.items,
-        selectedVideoId: response.data.items[0].id.videoId
-      });
-    };
+const App = () => {
+  const [videosMetaInfo, setVideosMetaInfo] = useState([]);
+  const [selectedVideoId, setSelectedVideoId] = useState(null);
 
-   render() {
-      return (
-        <Container fluid className="App">
+const  onVideoSelected = (videoId) => {
+      setSelectedVideoId(videoId)
+  }
+
+  const onSearch = async keyword => {
+    const response = await youtubeApi.get("/search", {
+      params: {
+        q: keyword
+      }
+    });
+
+      setVideosMetaInfo(response.data.items);
+      setSelectedVideoId(response.data.items[0].id.videoId);
+  };
+  return (
+    <Container fluid className="App">
           <Row className="app-wrap">
             <Col lg={8} className="left-side">
-          <Search onSearch={this.onSearch} />
-          <Videoplayer videoId={this.state.selectedVideoId} />        
+          <Search onSearch={onSearch} />
+          <Videoplayer videoId={selectedVideoId} />        
             </Col>
             <Col lg={4} className="rights-side">
             <VideoList
-          onVideoSelected={this.onVideoSelected}
-          data={this.state.videosMetaInfo}
+          onVideoSelected={onVideoSelected}
+          data={videosMetaInfo}
         /></Col>
           </Row>
         </Container>
-      );
-    }
-  
-  }
+  )
+}
 
-// export default App;
+export default App
+
