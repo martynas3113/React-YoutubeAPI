@@ -1,36 +1,36 @@
-import React, { useState } from 'react';
+import React from 'react';
 import './video.scss';
-import youtubeApi from '../api/youtube';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import axios from 'axios'
 
 
-const Video = ({ pageToken ,data, onVideoSelected }) => {
+const Video = ({ data, onVideoSelected }) => {
 
-  const [videoData, setVideoData] = useState({data});
+  const selectVideo = (videoIdObj, snippet) => {
+    
+    const selectedVideo = {
+      channel: snippet.channelTitle,
+      videoTitle:snippet.title
+    }
+    
+    axios.post('http://localhost:5000/videos/add', selectedVideo)
 
-  const fetchData = async () => {
-    const response = await youtubeApi.get("/search", {
-      params: {
-        pageToken: pageToken,
-      }
-    });
-    console.log(videoData)
-  }
-  const selectVideo = (videoIdObj, onVideoSelected) => {
     window.scrollTo({
       top:0
     })
     onVideoSelected(videoIdObj.videoId);
+
   }
 
-  const constructVideoTitles = (videosData, onVideoSelected) => {
+  const constructVideoTitles = (videosData) => {
     
-    return <InfiniteScroll scrollableTarget="scrollableDiv" dataLength={data.length} next={()=> fetchData()} hasMore={true}>{videosData.map(({ snippet, id }, index) => {
+    return <InfiniteScroll scrollableTarget="scrollableDiv" dataLength={data.length} hasMore={true}>{videosData.map(({ snippet, id }, index) => {
       return (
         <div
+          id={index}
           className="video"
           key={index}
-          onClick={() => selectVideo(id, onVideoSelected)}>
+          onClick={()=> selectVideo(id, snippet)}>
           <div className="image-bg" style={{backgroundImage: `url(${snippet.thumbnails.high.url})`}} key={index} />
           <p className="title">{snippet.title}</p>
         </div>
@@ -38,7 +38,7 @@ const Video = ({ pageToken ,data, onVideoSelected }) => {
   })}
   </InfiniteScroll>
   }
-  return <>{constructVideoTitles(data, onVideoSelected)}</>;
+  return <>{constructVideoTitles(data)}</>;
 };
 
 export default Video

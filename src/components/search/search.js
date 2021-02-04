@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import  './search.scss';
+import axios from 'axios';
 
 
 const Search = ({onSearch}) => {
@@ -25,6 +26,13 @@ const Search = ({onSearch}) => {
   
   const onSubmit = () => {
       onSearch(title);
+
+      const item = {
+        search: title
+      }
+      
+      axios.post('http://localhost:5000/search/add', item)
+
   };
   const formValidation = () => {
     const nameValid = /[^A-Za-z]/;

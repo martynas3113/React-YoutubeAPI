@@ -1,7 +1,7 @@
 import React from 'react';
 import Video from "../video/video";
 import './VideoList.scss';
-import InfiniteScroll from 'react-infinite-scroll-component';
+
 
 
 const VideoList = ({pageToken, data, onVideoSelected }) => {
