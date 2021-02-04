@@ -20,7 +20,6 @@ const Search = ({onSearch}) => {
     }
     else{
       setIsError(true);
-      console.log("did not pass")
     }
   }
   

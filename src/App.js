@@ -12,6 +12,7 @@ import { Col, Container, Row } from 'react-bootstrap';
 const App = () => {
   const [videosMetaInfo, setVideosMetaInfo] = useState([]);
   const [selectedVideoId, setSelectedVideoId] = useState(null);
+  const [pageToken, setPageToken] = useState("");
 
 const  onVideoSelected = (videoId) => {
       setSelectedVideoId(videoId)
@@ -23,9 +24,10 @@ const  onVideoSelected = (videoId) => {
         q: keyword
       }
     });
-
+      console.log(response)
       setVideosMetaInfo(response.data.items);
       setSelectedVideoId(response.data.items[0].id.videoId);
+      setPageToken(response.data.nextPageToken);
   };
   return (
     <Container fluid className="App">
@@ -36,6 +38,7 @@ const  onVideoSelected = (videoId) => {
             </Col>
             <Col lg={4} className="rights-side">
             <VideoList
+            pageToken={pageToken}
           onVideoSelected={onVideoSelected}
           data={videosMetaInfo}
         /></Col>

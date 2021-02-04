@@ -1,17 +1,22 @@
 import React from 'react';
 import Video from "../video/video";
 import './VideoList.scss';
+import InfiniteScroll from 'react-infinite-scroll-component';
 
-const VideoList = ({ data, onVideoSelected }) => {
+
+const VideoList = ({pageToken, data, onVideoSelected }) => {
+
+    
     return (
-      <div className="video-list">
-        <div className="list-wrap" style={{ padding: "20px 0" }}>
+      <div id="scrollableDiv" className="video-list">
+        <div className="list-wrap">
           <h3 className="list-title">
             Search results
           </h3>
-          <Video data={data} onVideoSelected={onVideoSelected} />
+          <Video pageToken={pageToken} data={data} onVideoSelected={onVideoSelected} />
         </div>
       </div>
+      
     );
   };
   

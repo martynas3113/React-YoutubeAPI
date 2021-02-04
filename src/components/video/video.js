@@ -1,8 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './video.scss';
+import youtubeApi from '../api/youtube';
+import InfiniteScroll from 'react-infinite-scroll-component';
 
-const Video = ({ data, onVideoSelected }) => {
 
+const Video = ({ pageToken ,data, onVideoSelected }) => {
+
+  const [videoData, setVideoData] = useState({data});
+
+  const fetchData = async () => {
+    const response = await youtubeApi.get("/search", {
+      params: {
+        pageToken: pageToken,
+      }
+    });
+    console.log(videoData)
+  }
   const selectVideo = (videoIdObj, onVideoSelected) => {
     window.scrollTo({
       top:0
@@ -11,7 +24,8 @@ const Video = ({ data, onVideoSelected }) => {
   }
 
   const constructVideoTitles = (videosData, onVideoSelected) => {
-    return videosData.map(({ snippet, id }, index) => {
+    
+    return <InfiniteScroll scrollableTarget="scrollableDiv" dataLength={data.length} next={()=> fetchData()} hasMore={true}>{videosData.map(({ snippet, id }, index) => {
       return (
         <div
           className="video"
@@ -20,10 +34,11 @@ const Video = ({ data, onVideoSelected }) => {
           <div className="image-bg" style={{backgroundImage: `url(${snippet.thumbnails.high.url})`}} key={index} />
           <p className="title">{snippet.title}</p>
         </div>
-      );
-    });
+      )
+  })}
+  </InfiniteScroll>
   }
   return <>{constructVideoTitles(data, onVideoSelected)}</>;
 };
 
-export default Video;
+export default Video
