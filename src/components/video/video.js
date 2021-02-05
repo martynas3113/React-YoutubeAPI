@@ -4,8 +4,10 @@ import InfiniteScroll from 'react-infinite-scroll-component';
 import axios from 'axios'
 
 
-const Video = ({ data, onVideoSelected }) => {
 
+const Video = ({fetch, data, onVideoSelected }) => {
+  
+  
   const selectVideo = (videoIdObj, snippet) => {
     
     const selectedVideo = {
@@ -24,7 +26,7 @@ const Video = ({ data, onVideoSelected }) => {
 
   const constructVideoTitles = (videosData) => {
     
-    return <InfiniteScroll scrollableTarget="scrollableDiv" dataLength={data.length} hasMore={true}>{videosData.map(({ snippet, id }, index) => {
+    return <InfiniteScroll scrollableTarget="scrollableDiv" dataLength={data.length} next={()=> fetch()}  hasMore={true}>{videosData.map(({ snippet, id }, index) => {
       return (
         <div
           id={index}

@@ -37,8 +37,8 @@ const Search = ({onSearch}) => {
 
   };
   const formValidation = () => {
-    const nameValid = /[^A-Za-z]/;
-    if (nameValid.test(title)) {
+    const nameValid = /[A-Za-z/s]/;
+    if (!nameValid.test(title)) {
         setErrorText("Only characters are allowed!")
         return true;
     } else if(title === "") {

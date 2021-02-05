@@ -4,7 +4,7 @@ import './VideoList.scss';
 
 
 
-const VideoList = ({pageToken, data, onVideoSelected }) => {
+const VideoList = ({fetch, data, onVideoSelected }) => {
 
     
     return (
@@ -13,7 +13,7 @@ const VideoList = ({pageToken, data, onVideoSelected }) => {
           <h3 className="list-title">
             Search results
           </h3>
-          <Video pageToken={pageToken} data={data} onVideoSelected={onVideoSelected} />
+          <Video fetch={fetch} data={data} onVideoSelected={onVideoSelected} />
         </div>
       </div>
       

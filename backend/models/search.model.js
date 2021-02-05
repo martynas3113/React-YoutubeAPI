@@ -10,8 +10,7 @@ const searchSchema = new Schema({
         trim: true,
         minlength: 1
     },
-}, {
-    timestamps:true
+    date: { type: String, default: Date } 
 });
 
 const Search = mongoose.model("Search", searchSchema);

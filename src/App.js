@@ -12,9 +12,26 @@ import { Col, Container, Row } from 'react-bootstrap';
 const App = () => {
   const [videosMetaInfo, setVideosMetaInfo] = useState([]);
   const [selectedVideoId, setSelectedVideoId] = useState(null);
+  const [token, setToken] = useState("");
+  const [title, setTitle] = useState("");
 
 const  onVideoSelected = (videoId) => {
       setSelectedVideoId(videoId)
+  }
+
+  const fetchData = async () => {
+    const response = await youtubeApi.get("/search", {
+      params: {
+        pageToken: token,
+        q: title
+      }
+    });
+    setVideosMetaInfo((prevData) => [
+      ...prevData,
+      ...response.data.items
+    ])
+    setToken(response.data.nextPageToken)
+   
   }
 
   const onSearch = async keyword => {
@@ -23,8 +40,10 @@ const  onVideoSelected = (videoId) => {
         q: keyword
       }
     });
-      setVideosMetaInfo(response.data.items);
+      setVideosMetaInfo(response.data.items)
+      setTitle(keyword);
       setSelectedVideoId(response.data.items[0].id.videoId);
+      setToken(response.data.nextPageToken)
   };
   return (
     <Container fluid className="App">
@@ -35,6 +54,7 @@ const  onVideoSelected = (videoId) => {
             </Col>
             <Col lg={4} className="rights-side">
             <VideoList
+            fetch={fetchData}
           onVideoSelected={onVideoSelected}
           data={videosMetaInfo}
         /></Col>
