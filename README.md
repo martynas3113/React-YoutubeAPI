@@ -1,70 +1,42 @@
-# Getting Started with Create React App
+## React-YoutubeAPI
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Web app made by React.js with YoutubeAPI. This app gets data from YoutubeAPI to search videos by entered keyword.
 
-## Available Scripts
+####  Features: 
 
-In the project directory, you can run:
+<b> Frontend : </b>
+- Fully responsive layout
+- Search input validations (Only characters with length less than 20 symbols)
+- Message for invalid input
+- Search results limited to 20 videos
+- Loads next 20 videos on scroll down
 
-### `npm start`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<b> Backend : </b>
+- Node.js app to log user actions in UI :
+  1) Logging search words
+  2) Logging selected video info
+  
+- REST API end point created to log actions
+- All user actions saved in MongoDB database
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Search keyword save format in database 
+  
+  ![search format](https://user-images.githubusercontent.com/60692659/107048214-5bbef880-67d1-11eb-9a3c-8bd55c4a1bc5.PNG)
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- Selected video save format in database 
+  
+  ![selected vid](https://user-images.githubusercontent.com/60692659/107048406-945ed200-67d1-11eb-88d4-7bc226c106b3.PNG)
+  
+  
+  <b> If You want to run this app on Your machine : </b>
+  - Clone repository to Your machine
+  - Open with Your code editor
+  - Navigate to youtube-frontend/backend folder
+  - Open terminal and run npm install
+  - After install completes , run nodemon server
+  - Navigate to youtube-frontend folder
+  - Open new terminal and run npm install
+  - After install completes run npm start
+ 
