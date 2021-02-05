@@ -26,7 +26,7 @@ const Video = ({fetch, data, onVideoSelected }) => {
 
   const constructVideoTitles = (videosData) => {
     
-    return <InfiniteScroll scrollableTarget="scrollableDiv" dataLength={data.length} next={()=> fetch()}  hasMore={true}>{videosData.map(({ snippet, id }, index) => {
+    return <InfiniteScroll className="video-wrap" scrollableTarget="scrollableDiv" dataLength={data.length} next={()=> fetch()}  hasMore={true}>{videosData.map(({ snippet, id }, index) => {
       return (
         <div
           id={index}

@@ -77,9 +77,13 @@ const  onVideoSelected = (videoId) => {
   return (
     <Container fluid className="App">
       {renderError()}
+        <Row>
+          <Col className="search-wrap">
+          <Search onSearch={onSearch} />
+          </Col>
+        </Row>
           <Row className="app-wrap">
             <Col lg={8} className="left-side">
-          <Search onSearch={onSearch} />
           <Videoplayer videoId={selectedVideoId} />        
             </Col>
             <Col lg={4} className="rights-side">

@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import  './search.scss';
 import axios from 'axios';
+import { ImCross } from 'react-icons/im';
+import { BiSearch } from 'react-icons/bi'
+
 
 
 const Search = ({onSearch}) => {
@@ -62,15 +65,16 @@ const Search = ({onSearch}) => {
               <label>Search</label>
               <input
                 id="video-search"
+                className="textbox"
                 type="text"
                 value={title}
                 onChange={onSearchChanged}
                 placeholder="Enter Search Keyword"
               />
+              <button data-testid = "search-button" onClick={showResults} className="btn btn-primary"><BiSearch/></button>
             </div>
-            <button data-testid = "search-button" onClick={showResults} className="btn btn-primary">Go</button>
           </form>
-          <div className={isError ? "error active" : "error"}>{errorText}</div>
+          <div className={isError ? "error active" : "error"}><ImCross className="cross"/>{errorText}</div>
         </>
   )
 }

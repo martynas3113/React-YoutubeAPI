@@ -11,4 +11,19 @@ html {
   
   .left-side{
       padding: 20px;
+      ;
+
+  }
+
+  .rights-side{
+    
+    border-left: 1px solid lightgray;
+  }
+
+  .search-wrap {
+    display: flex;
+    justify-content: center;
+    padding:20px 0px;
+    border-bottom: 1px solid lightgray;
+    
   }

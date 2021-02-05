@@ -1,20 +1,20 @@
 .video-list {
-  border-left: 1px solid lightgray;
   grid-row: span 2;
   padding: 20px;
-  height: 100vh;
+  height: calc(100vh - 87px);
   overflow: auto;
 
   .list-wrap{
     padding: 20px 0px;
-
-    .list-title{
-      text-align: center;
-      font-size: 18px;
-      font-weight :bold;
-      text-transform: uppercase; 
-    }
+    display: flex;
+    justify-content: center;
   }
+}
+.list-title{
+  text-align: center;
+  font-size: 20px;
+  font-weight :bold;
+  text-transform: uppercase; 
 }
 
 @media(max-width:991px){

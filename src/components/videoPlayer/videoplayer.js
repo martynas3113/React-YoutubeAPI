@@ -6,7 +6,7 @@ const Videoplayer = ({ videoId }) => {
   if (!videoId) {
     return (
       <p className="subtitle">
-        Start searching for Youtube videos!
+        Start searching for videos!
       </p>
     );
   }
