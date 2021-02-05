@@ -28,3 +28,15 @@ Youtube videos app made by React.js with YoutubeAPI.
 - Selected video save format in database 
   
   ![selected vid](https://user-images.githubusercontent.com/60692659/107048406-945ed200-67d1-11eb-88d4-7bc226c106b3.PNG)
+  
+  
+  <b> If You want to run this app on Your machine : </b>
+  - Clone repository to Your machine
+  - Open with Your code editor
+  - Navigate to youtube-frontend/backend folder
+  - Open terminal and run npm install
+  - After install completes , run nodemon server
+  - Navigate to youtube-frontend folder
+  - Open new terminal and run npm install
+  - After install completes run npm start
+ 
