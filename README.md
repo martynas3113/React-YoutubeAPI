@@ -19,3 +19,5 @@ Youtube videos app made by React.js with YoutubeAPI.
 - REST API end point created to log actions
 - All user actions saved in MongoDB database :
   1) Search keyword 
+  
+![search format](https://user-images.githubusercontent.com/60692659/107048214-5bbef880-67d1-11eb-9a3c-8bd55c4a1bc5.PNG)
