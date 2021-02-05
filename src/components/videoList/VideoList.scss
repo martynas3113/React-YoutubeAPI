@@ -5,7 +5,7 @@
   overflow: auto;
 
   .list-wrap{
-    padding: 20px 0px;
+    
     display: flex;
     justify-content: center;
   }
@@ -15,11 +15,4 @@
   font-size: 20px;
   font-weight :bold;
   text-transform: uppercase; 
-}
-
-@media(max-width:991px){
-  .video-list{
-
-    border: 1px solid lightgray;
-  }
 }
