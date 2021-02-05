@@ -35,8 +35,7 @@ Web app made by React.js with YoutubeAPI. This app gets data from YoutubeAPI to 
   - Open with Your code editor
   - Navigate to youtube-frontend/backend folder
   - Open terminal and run npm install
-  - After install completes , run nodemon server
   - Navigate to youtube-frontend folder
-  - Open new terminal and run npm install
-  - After install completes run npm start
+  - Open terminal and run npm install
+  - After install run command in terminal : npm run dev this will launch server and application
  
