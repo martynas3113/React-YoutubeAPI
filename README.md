@@ -1,6 +1,6 @@
 ## React-YoutubeAPI
 
-Web app made by React.js with YoutubeAPI. This app gets data from YoutubeAPI to search videos by entered keyword
+Web app made by React.js with YoutubeAPI. This app gets data from YoutubeAPI to search videos by entered keyword.
 
 ####  Features: 
 
