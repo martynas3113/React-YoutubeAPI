@@ -68,7 +68,7 @@ const Search = ({onSearch}) => {
                 placeholder="Enter Search Keyword"
               />
             </div>
-            <button onClick={showResults} className="btn btn-primary">Go</button>
+            <button data-testid = "search-button" onClick={showResults} className="btn btn-primary">Go</button>
           </form>
           <div className={isError ? "error active" : "error"}>{errorText}</div>
         </>
