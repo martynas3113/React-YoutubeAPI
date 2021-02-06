@@ -39,3 +39,4 @@ Web app made by React.js with YoutubeAPI. This app gets data from YoutubeAPI to 
   - Open terminal and run npm install
   - After install run command in terminal : npm run dev this will launch server and application
  
+Site is published at : https://infinite-reaches-10530.herokuapp.com/
