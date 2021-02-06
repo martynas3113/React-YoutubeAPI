@@ -36,7 +36,7 @@ const Search = ({onSearch}) => {
         search: title
       }
       
-      axios.post('http://localhost:5000/search/add', item)
+      axios.post('http://localhost:8080/search/add', item)
 
   };
   const formValidation = () => {

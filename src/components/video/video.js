@@ -15,7 +15,7 @@ const Video = ({fetch, data, onVideoSelected }) => {
       videoTitle:snippet.title
     }
     
-    axios.post('http://localhost:5000/videos/add', selectedVideo)
+    axios.post('http://localhost:8080/videos/add', selectedVideo)
 
     window.scrollTo({
       top:0
